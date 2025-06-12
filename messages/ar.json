@@ -1,3 +1,25 @@
 {
-    "hello": "Hallo AR"
+  "HomePage": {
+    "title": "مرحبًا بك في",
+    "description": "صُنع بحب بواسطة عبدالرحمن مصطفى",
+    "feature1Title": "تم بناؤه باستخدام React",
+    "feature1Description": "تم استخدام Next.js، وهو إطار عمل React لبناء تطبيقات يتم تقديمها من جانب الخادم.",
+    "feature2Title": "واجهة GraphQL API",
+    "feature2Description": "يستخدم GraphQL لجلب البيانات ومعالجتها بكفاءة، مما يسمح باستعلامات وتعديلات مرنة.",
+    "feature3Title": "تم التصميم باستخدام Tailwind CSS",
+    "feature3Description": "Tailwind CSS هو إطار عمل CSS يعتمد على الأدوات، ويوفر فئات مساعدة منخفضة المستوى لبناء تصميمات مخصصة دون مغادرة HTML."
+  },
+  "LoginPage": {
+    "title": "تسجيل الدخول إلى حسابك",
+    "emailLabel": "عنوان البريد الإلكتروني",
+    "emailPlaceholder": "بريدك الإلكتروني",
+    "passwordLabel": "كلمة المرور",
+    "passwordPlaceholder": "كلمة مرورك",
+    "signInButton": "تسجيل الدخول",
+    "backToHome": "العودة إلى الصفحة الرئيسية"
+  },
+  "Navigation": {
+    "home": "الرئيسية",
+    "login": "تسجيل الدخول"
+  }
 }

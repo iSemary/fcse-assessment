@@ -1,4 +1,3 @@
-// src/middleware.ts
 import { NextRequest, NextResponse } from 'next/server';
 import createMiddleware from 'next-intl/middleware';
 import { locales, defaultLocale } from './config/locales';

@@ -1,6 +1,9 @@
+// app/[locale]/layout.tsx
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { generateLocaleParams } from '../../config/locales';
+import Header from '../../components/layout/Header';
+import Footer from '../../components/layout/Footer';
 import '../globals.css';
 
 export function generateStaticParams() {
@@ -19,9 +22,11 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <body>
+      <body className="flex flex-col min-h-screen">
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <Header />
+          <main className="flex-grow bg-gradient-to-br from-blue-50 to-indigo-100">{children}</main>
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

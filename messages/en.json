@@ -1,24 +1,25 @@
 {
   "HomePage": {
-    "title": "Welcome to Next.js!",
-    "description": "Get started by editing src/app/page.tsx"
+    "title": "Welcome to",
+    "description": "Made with love by Abdelrahman Mostafa",
+    "feature1Title": "Built with React",
+    "feature1Description": "Used Next.js, a React framework for building server-side rendered applications.",
+    "feature2Title": "GraphQL API",
+    "feature2Description": "Utilizes GraphQL for efficient data fetching and manipulation, allowing for flexible queries and mutations.",
+    "feature3Title": "Styled with Tailwind CSS",
+    "feature3Description": "Tailwind CSS is a utility-first CSS framework that provides low-level utility classes to build custom designs without leaving your HTML."
   },
   "LoginPage": {
     "title": "Sign in to your account",
-    "subtitle": "Or start your 14-day free trial",
     "emailLabel": "Email address",
-    "emailPlaceholder": "Email address",
+    "emailPlaceholder": "Your email address",
     "passwordLabel": "Password",
-    "passwordPlaceholder": "Password",
-    "rememberMe": "Remember me",
-    "forgotPassword": "Forgot your password?",
+    "passwordPlaceholder": "Your password",
     "signInButton": "Sign in",
-    "noAccount": "Don't have an account?",
-    "signUpLink": "Sign up"
+    "backToHome": "Back to home"
   },
   "Navigation": {
     "home": "Home",
-    "about": "About",
     "login": "Login"
   }
 }

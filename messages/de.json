@@ -1,3 +1,25 @@
 {
-    "hello": "Hallo DE"
+  "HomePage": {
+    "title": "Willkommen bei",
+    "description": "Mit Liebe gemacht von Abdelrahman Mostafa",
+    "feature1Title": "Erstellt mit React",
+    "feature1Description": "Verwendet Next.js, ein React-Framework für den Aufbau von serverseitig gerenderten Anwendungen.",
+    "feature2Title": "GraphQL API",
+    "feature2Description": "Verwendet GraphQL für effizientes Abrufen und Verarbeiten von Daten und ermöglicht flexible Abfragen und Mutationen.",
+    "feature3Title": "Gestylt mit Tailwind CSS",
+    "feature3Description": "Tailwind CSS ist ein Utility-First-CSS-Framework, das Low-Level-Dienstklassen bereitstellt, um individuelle Designs direkt im HTML zu erstellen."
+  },
+  "LoginPage": {
+    "title": "Melden Sie sich bei Ihrem Konto an",
+    "emailLabel": "E-Mail-Adresse",
+    "emailPlaceholder": "Ihre E-Mail-Adresse",
+    "passwordLabel": "Passwort",
+    "passwordPlaceholder": "Ihr Passwort",
+    "signInButton": "Anmelden",
+    "backToHome": "Zurück zur Startseite"
+  },
+  "Navigation": {
+    "home": "Startseite",
+    "login": "Anmeldung"
+  }
 }

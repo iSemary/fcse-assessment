@@ -1,13 +1,13 @@
 import { getRequestConfig } from 'next-intl/server';
-import { locales, defaultLocale, isValidLocale } from './config/locales';
+import { defaultLocale, isValidLocale } from './config/locales';
 
 export default getRequestConfig(async ({ locale }) => {
-  // Provide a fallback locale if undefined
   const validLocale = locale || defaultLocale;
-  
   // Validate the locale
   if (!isValidLocale(validLocale)) {
-    console.warn(`Invalid locale received: ${locale}, falling back to '${defaultLocale}'`);
+    console.warn(
+      `Invalid locale received: ${locale}, falling back to '${defaultLocale}'`
+    );
     return {
       locale: defaultLocale,
       messages: (await import(`../messages/${defaultLocale}.json`)).default,

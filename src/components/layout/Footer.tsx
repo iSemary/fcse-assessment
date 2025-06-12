@@ -11,12 +11,12 @@ export default async function Footer() {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <Image
-                src="/images/logo/logo.jpeg"
-                alt="Company Logo"
-                width={32}
-                height={32}
-                priority
-              />
+                             src="/images/logo/logo.jpeg"
+                             alt="Company Logo"
+                             width={32}
+                             height={32}
+                             priority
+                           />
               <span className="text-xl font-bold">
                 {process.env.NEXT_PUBLIC_APP_NAME || 'FCSE'}
               </span>

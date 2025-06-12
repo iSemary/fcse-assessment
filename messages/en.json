@@ -7,7 +7,8 @@
     "feature2Title": "GraphQL API",
     "feature2Description": "Utilizes GraphQL for efficient data fetching and manipulation, allowing for flexible queries and mutations.",
     "feature3Title": "Styled with Tailwind CSS",
-    "feature3Description": "Tailwind CSS is a utility-first CSS framework that provides low-level utility classes to build custom designs without leaving your HTML."
+    "feature3Description": "Tailwind CSS is a utility-first CSS framework that provides low-level utility classes to build custom designs without leaving your HTML.",
+    "getStarted": "Get Started"
   },
   "LoginPage": {
     "title": "Sign in to your account",
@@ -16,10 +17,59 @@
     "passwordLabel": "Password",
     "passwordPlaceholder": "Your password",
     "signInButton": "Sign in",
-    "backToHome": "Back to home"
+    "signingIn": "Signing in...",
+    "backToHome": "Back to home",
+    "validation": {
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email address",
+      "passwordRequired": "Password is required"
+    },
+    "error": {
+      "title": "Login Failed",
+      "loginFailed": "Invalid email or password",
+      "unexpected": "An unexpected error occurred"
+    }
+  },
+  "ProfilePage": {
+    "title": "Account Details",
+    "firstNameLabel": "First Name",
+    "lastNameLabel": "Last Name",
+    "emailLabel": "Email",
+    "logoutButton": "Logout",
+    "loading": "Loading...",
+    "welcome": "Welcome back!"
   },
   "Navigation": {
     "home": "Home",
-    "login": "Login"
+    "login": "Login",
+    "profile": "Profile",
+    "logout": "Logout"
+  },
+  "Header": {
+    "welcome": "Welcome",
+    "login": "Login",
+    "logout": "Logout",
+    "profile": "Profile"
+  },
+  "Common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit"
+  },
+  "Errors": {
+    "general": "Something went wrong. Please try again.",
+    "network": "Network error. Please check your connection.",
+    "unauthorized": "You are not authorized to perform this action.",
+    "notFound": "The requested page was not found.",
+    "validation": "Please check your input and try again."
   }
 }

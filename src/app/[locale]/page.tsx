@@ -1,6 +1,4 @@
-// app/[locale]/page.tsx
 import { getTranslations } from 'next-intl/server';
-import Link from 'next/link';
 import { generateLocaleParams } from '../../config/locales';
 
 export function generateStaticParams() {

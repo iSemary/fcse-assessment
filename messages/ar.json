@@ -2,24 +2,74 @@
   "HomePage": {
     "title": "مرحبًا بك في",
     "description": "صُنع بحب بواسطة عبدالرحمن مصطفى",
-    "feature1Title": "تم بناؤه باستخدام React",
-    "feature1Description": "تم استخدام Next.js، وهو إطار عمل React لبناء تطبيقات يتم تقديمها من جانب الخادم.",
+    "feature1Title": "بُني باستخدام React",
+    "feature1Description": "تم استخدام Next.js، وهو إطار عمل React لإنشاء تطبيقات تُعرض من جهة الخادم.",
     "feature2Title": "واجهة GraphQL API",
-    "feature2Description": "يستخدم GraphQL لجلب البيانات ومعالجتها بكفاءة، مما يسمح باستعلامات وتعديلات مرنة.",
-    "feature3Title": "تم التصميم باستخدام Tailwind CSS",
-    "feature3Description": "Tailwind CSS هو إطار عمل CSS يعتمد على الأدوات، ويوفر فئات مساعدة منخفضة المستوى لبناء تصميمات مخصصة دون مغادرة HTML."
+    "feature2Description": "يستخدم GraphQL لجلب البيانات بكفاءة والتعامل معها، مما يسمح باستعلامات وتعديلات مرنة.",
+    "feature3Title": "تم تنسيقه باستخدام Tailwind CSS",
+    "feature3Description": "Tailwind CSS هو إطار CSS يعتمد على الأدوات المساعدة، يوفر فئات منخفضة المستوى لتصميمات مخصصة داخل HTML مباشرة.",
+    "getStarted": "ابدأ الآن"
   },
   "LoginPage": {
     "title": "تسجيل الدخول إلى حسابك",
-    "emailLabel": "عنوان البريد الإلكتروني",
+    "emailLabel": "البريد الإلكتروني",
     "emailPlaceholder": "بريدك الإلكتروني",
     "passwordLabel": "كلمة المرور",
-    "passwordPlaceholder": "كلمة مرورك",
+    "passwordPlaceholder": "كلمة المرور الخاصة بك",
     "signInButton": "تسجيل الدخول",
-    "backToHome": "العودة إلى الصفحة الرئيسية"
+    "signingIn": "جارٍ تسجيل الدخول...",
+    "backToHome": "العودة إلى الصفحة الرئيسية",
+    "validation": {
+      "emailRequired": "البريد الإلكتروني مطلوب",
+      "emailInvalid": "يرجى إدخال بريد إلكتروني صالح",
+      "passwordRequired": "كلمة المرور مطلوبة"
+    },
+    "error": {
+      "title": "فشل تسجيل الدخول",
+      "loginFailed": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
+      "unexpected": "حدث خطأ غير متوقع"
+    }
+  },
+  "ProfilePage": {
+    "title": "تفاصيل الحساب",
+    "firstNameLabel": "الاسم الأول",
+    "lastNameLabel": "اسم العائلة",
+    "emailLabel": "البريد الإلكتروني",
+    "logoutButton": "تسجيل الخروج",
+    "loading": "جارٍ التحميل...",
+    "welcome": "مرحبًا بعودتك!"
   },
   "Navigation": {
     "home": "الرئيسية",
-    "login": "تسجيل الدخول"
+    "login": "تسجيل الدخول",
+    "profile": "الملف الشخصي",
+    "logout": "تسجيل الخروج"
+  },
+  "Header": {
+    "welcome": "مرحبًا",
+    "login": "تسجيل الدخول",
+    "logout": "تسجيل الخروج",
+    "profile": "الملف الشخصي"
+  },
+  "Common": {
+    "loading": "جارٍ التحميل...",
+    "error": "خطأ",
+    "success": "تم بنجاح",
+    "cancel": "إلغاء",
+    "confirm": "تأكيد",
+    "save": "حفظ",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "back": "عودة",
+    "next": "التالي",
+    "previous": "السابق",
+    "submit": "إرسال"
+  },
+  "Errors": {
+    "general": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+    "network": "خطأ في الشبكة. يرجى التحقق من الاتصال.",
+    "unauthorized": "أنت غير مخول للقيام بهذا الإجراء.",
+    "notFound": "الصفحة المطلوبة غير موجودة.",
+    "validation": "يرجى التحقق من البيانات المُدخلة والمحاولة مرة أخرى."
   }
 }

@@ -17,7 +17,7 @@ export const localeData = {
 } as const;
 
 export const locales = Object.keys(localeData) as (keyof typeof localeData)[];
-export const defaultLocale = 'de' as const;
+export const defaultLocale = 'en' as const;
 
 export type Locale = keyof typeof localeData;
 export type LocaleData = typeof localeData[Locale];

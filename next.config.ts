@@ -9,6 +9,7 @@ const nextConfig = {
   },
   assetPrefix: '',
   basePath: '',
+  output: 'standalone'
 };
 
 export default withNextIntl(nextConfig);

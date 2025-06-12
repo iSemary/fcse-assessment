@@ -1,3 +1,24 @@
 {
-    "hello": "Hallo EN"
+  "HomePage": {
+    "title": "Welcome to Next.js!",
+    "description": "Get started by editing src/app/page.tsx"
+  },
+  "LoginPage": {
+    "title": "Sign in to your account",
+    "subtitle": "Or start your 14-day free trial",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "Email address",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Password",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot your password?",
+    "signInButton": "Sign in",
+    "noAccount": "Don't have an account?",
+    "signUpLink": "Sign up"
+  },
+  "Navigation": {
+    "home": "Home",
+    "about": "About",
+    "login": "Login"
+  }
 }

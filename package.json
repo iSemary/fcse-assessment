@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest"
   },
   "dependencies": {
     "@apollo/client": "^3.13.8",
@@ -15,7 +16,6 @@
     "graphql-tag": "^2.12.6",
     "next": "15.3.3",
     "next-intl": "^4.1.0",
-    "test": "jest",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwind-merge": "^3.3.1"

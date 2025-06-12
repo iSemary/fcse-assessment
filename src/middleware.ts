@@ -1,10 +1,32 @@
+// src/middleware.ts
+import { NextRequest, NextResponse } from 'next/server';
 import createMiddleware from 'next-intl/middleware';
+import { locales, defaultLocale } from './config/locales';
 
-export default createMiddleware({
-  locales: ['de', 'en', 'ar'],
-  defaultLocale: 'de',
+const intlMiddleware = createMiddleware({
+  locales: [...locales],
+  defaultLocale,
+  localePrefix: 'always',
 });
 
+export default function middleware(request: NextRequest) {
+  const pathname = request.nextUrl.pathname;
+
+  if (
+    pathname.startsWith('/_next/') ||
+    pathname.startsWith('/api/') ||
+    pathname.includes('.')
+  ) {
+    return NextResponse.next();
+  }
+
+  if (pathname === '/') {
+    return NextResponse.redirect(new URL(`/${defaultLocale}`, request.url));
+  }
+
+  return intlMiddleware(request);
+}
+
 export const config = {
-  matcher: ['/', '/(de|en|ar)/:path*'],
+  matcher: ['/((?!_next|api|favicon.ico).*)', '/'],
 };

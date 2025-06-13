@@ -119,6 +119,9 @@ The application supports various environment variables:
 
 ## Screenshots
 
+View the full design on figma (English, German, and Arabic [RTL])
+https://www.figma.com/design/sSdnO2Im7oc83FfSq8sA82/FCSE-Design?node-id=0-1&t=M2SpSw8LkbhFLL6f-1
+
 ![alt text](https://i.ibb.co/ZRq9Psxj/Screenshot-from-2025-06-12-21-30-33.png)
 ![alt text](https://i.ibb.co/3m28nmv0/Screenshot-from-2025-06-12-21-31-28.png)
 ![alt text](https://i.ibb.co/zWy8nq4j/Screenshot-from-2025-06-12-21-34-07.png)

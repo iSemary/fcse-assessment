@@ -1,15 +1,15 @@
 import createNextIntlPlugin from 'next-intl/plugin';
+import type { NextConfig } from 'next';
 
 const withNextIntl = createNextIntlPlugin('./src/i18n.ts');
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
   assetPrefix: '',
   basePath: '',
-  output: 'standalone'
+  output: 'standalone',
 };
 
 export default withNextIntl(nextConfig);

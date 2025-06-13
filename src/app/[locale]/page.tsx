@@ -5,8 +5,14 @@ export function generateStaticParams() {
   return generateLocaleParams();
 }
 
-export default async function HomePage({}: { params: { locale: string } }) {
-  const t = await getTranslations();
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+
+  const t = await getTranslations({ locale });
 
   return (
     <div className="flex flex-col items-center justify-center py-24 px-4">

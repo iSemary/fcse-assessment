@@ -2,6 +2,12 @@
 
 A modern web application built with Next.js, Typescript, GraphQL, and Tailwind.
 
+## Live Demo
+
+**Live Project**: [https://fcse.abdelrahman.online/](https://fcse.abdelrahman.online/)
+
+The project automatically deploys from the master branch with CI/CD pipeline that includes tests and ESLint checks.
+
 ## Table of Contents
 
 - [Technologies Used](#technologies-used)

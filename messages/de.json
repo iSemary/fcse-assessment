@@ -51,6 +51,9 @@
     "logout": "Abmelden",
     "profile": "Profil"
   },
+  "Footer": {
+    "description": "Mit Liebe gemacht von Abdelrahman Mostafa"
+  },
   "Common": {
     "loading": "Laden...",
     "error": "Fehler",

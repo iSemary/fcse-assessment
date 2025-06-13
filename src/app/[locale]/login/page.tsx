@@ -1,6 +1,7 @@
-import { getTranslations } from 'next-intl/server';
+import { getMessages, getTranslations } from 'next-intl/server';
 import { generateLocaleParams } from '../../../config/locales';
 import LoginForm from '../../../components/LoginForm';
+import { NextIntlClientProvider } from 'next-intl';
 
 export function generateStaticParams() {
   return generateLocaleParams();
@@ -9,10 +10,14 @@ export function generateStaticParams() {
 export default async function LoginPage({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: { locale: string };
 }) {
-  const { locale } = await params;
+  const { locale } = params;
+
   const t = await getTranslations({ locale, namespace: 'LoginPage' });
+
+  const messages = await getMessages({ locale });
+  const loginMessages = { LoginPage: messages.LoginPage };
 
   return (
     <div className="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -35,7 +40,9 @@ export default async function LoginPage({
           </div>
           <h2 className="text-3xl font-bold text-gray-900">{t('title')}</h2>
         </div>
-        <LoginForm locale={locale} />
+        <NextIntlClientProvider locale={locale} messages={loginMessages}>
+          <LoginForm locale={locale} />
+        </NextIntlClientProvider>
       </div>
     </div>
   );

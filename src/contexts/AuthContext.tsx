@@ -1,5 +1,11 @@
 'use client';
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from 'react';
 import { apolloClient } from '../lib/apollo-client';
 import { LOGIN_MUTATION } from '../lib/graphql';
 
@@ -11,8 +17,11 @@ interface User {
 
 interface AuthContextType {
   user: User | null;
-  token: string | null; // Make sure token is available
-  login: (email: string, password: string) => Promise<{ success: boolean; error?: string }>;
+  token: string | null;
+  login: (
+    email: string,
+    password: string
+  ) => Promise<{ success: boolean; error?: string }>;
   logout: () => void;
   isLoading: boolean;
 }
@@ -36,13 +45,16 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     if (typeof window !== 'undefined') {
       const storedToken = localStorage.getItem('authToken');
       const storedUser = localStorage.getItem('authUser');
-      
+
       if (storedToken && storedUser) {
         try {
           const parsedUser = JSON.parse(storedUser);
           setToken(storedToken);
           setUser(parsedUser);
-          console.log('Restored auth state:', { user: parsedUser, hasToken: !!storedToken });
+          console.log('Restored auth state:', {
+            user: parsedUser,
+            hasToken: !!storedToken,
+          });
         } catch (error) {
           console.error('Error parsing stored user data:', error);
           localStorage.removeItem('authToken');
@@ -58,9 +70,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       const { data, errors } = await apolloClient.mutate({
         mutation: LOGIN_MUTATION,
         variables: {
-          input: { 
+          input: {
             identifier: email.trim(),
-            password: password.trim()
+            password: password.trim(),
           },
         },
         errorPolicy: 'all',
@@ -68,32 +80,38 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
       if (errors && errors.length > 0) {
         return {
-          success: false,
+          success: false,          
           error: errors[0].message || 'Login failed',
         };
       }
 
       if (data?.login?.jwt && data?.login?.user) {
         const { jwt, user: userData } = data.login;
-        
+
         setToken(jwt);
         setUser(userData);
-        
+
         if (typeof window !== 'undefined') {
           localStorage.setItem('authToken', jwt);
           localStorage.setItem('authUser', JSON.stringify(userData));
         }
-        
-        console.log('Login successful:', { user: userData, tokenLength: jwt.length });
+
+        console.log('Login successful:', {
+          user: userData,
+          tokenLength: jwt.length,
+        });
         return { success: true };
       }
-      
+
       return { success: false, error: 'Login failed' };
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Login error:', error);
       return {
         success: false,
-        error: error.message || 'An error occurred during login',
+        error:
+          error instanceof Error
+            ? error.message
+            : 'An error occurred during login',
       };
     }
   };
@@ -101,12 +119,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const logout = () => {
     setUser(null);
     setToken(null);
-    
+
     if (typeof window !== 'undefined') {
       localStorage.removeItem('authToken');
       localStorage.removeItem('authUser');
     }
-    
+
     apolloClient.resetStore().catch((error) => {
       console.error('Error resetting Apollo store:', error);
     });

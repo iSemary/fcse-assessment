@@ -1,8 +1,10 @@
-import { getTranslations } from 'next-intl/server';
+'use client';
+
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
-export default async function Footer() {
-  const t = await getTranslations();
+export default function Footer() {
+  const t = useTranslations('Footer');
 
   return (
     <footer className="bg-gray-900 text-white">
@@ -11,19 +13,17 @@ export default async function Footer() {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <Image
-                             src="/images/logo/logo.jpeg"
-                             alt="Company Logo"
-                             width={32}
-                             height={32}
-                             priority
-                           />
+                src="/images/logo/logo.jpeg"
+                alt="Company Logo"
+                width={32}
+                height={32}
+                priority
+              />
               <span className="text-xl font-bold">
                 {process.env.NEXT_PUBLIC_APP_NAME || 'FCSE'}
               </span>
             </div>
-            <p className="text-gray-400 mb-4 max-w-md">
-              {t('HomePage.description')}
-            </p>
+            <p className="text-gray-400 mb-4 max-w-md">{t('description')}</p>
           </div>
         </div>
       </div>

@@ -1,25 +1,28 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
-import { generateLocaleParams, isValidLocale } from '../../config/locales';
+import {
+  generateLocaleParams,
+  isValidLocale,
+  getLocaleData
+} from '../../config/locales';
 import { notFound } from 'next/navigation';
 import Header from '../../components/layout/Header';
 import Footer from '../../components/layout/Footer';
 import ClientProviders from '../../components/ClientProviders';
-import { Inter } from 'next/font/google';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export function generateStaticParams() {
   return generateLocaleParams();
 }
 
+interface LocaleLayoutProps {
+  children: React.ReactNode;
+  params: { locale: string };
+}
+
 export default async function LocaleLayout({
   children,
   params,
-}: {
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
-}) {
+}: LocaleLayoutProps) {
   const { locale } = await params;
 
   // Validate locale
@@ -27,12 +30,18 @@ export default async function LocaleLayout({
     notFound();
   }
 
-  const messages = await getMessages();
+  const localeData = getLocaleData(locale);
+
+  // Pass the locale to getMessages
+  const messages = await getMessages({ locale });
+
+  console.log('Messages loaded for locale:', locale);
+  console.log('Available message keys:', Object.keys(messages || {}));
 
   return (
-    <html lang={locale}>
-      <body className={`${inter.className} flex flex-col min-h-screen`}>
-        <NextIntlClientProvider messages={messages}>
+    <html lang={locale} dir={localeData.dir}>
+      <body className={`flex flex-col min-h-screen`}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           <ClientProviders>
             <Header />
             <main className="flex-grow bg-gradient-to-br from-blue-50 to-indigo-100">

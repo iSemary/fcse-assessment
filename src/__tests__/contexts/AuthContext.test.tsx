@@ -2,6 +2,7 @@ import { render, screen, act } from '@testing-library/react';
 import { AuthProvider, useAuth } from '../../contexts/AuthContext';
 import React from 'react';
 import '@testing-library/jest-dom';
+import { apolloClient } from '../../lib/apollo-client';
 
 jest.mock('../../lib/apollo-client', () => ({
   apolloClient: {
@@ -9,6 +10,8 @@ jest.mock('../../lib/apollo-client', () => ({
     resetStore: jest.fn().mockResolvedValue(undefined),
   },
 }));
+
+const mockApolloClient = apolloClient as jest.Mocked<typeof apolloClient>;
 
 const TestComponent = () => {
   const { user, token, login, logout, isLoading } = useAuth();
@@ -39,8 +42,7 @@ describe('AuthContext', () => {
       },
     };
 
-    const { apolloClient } = require('../../lib/apollo-client');
-    apolloClient.mutate.mockResolvedValue(mockLogin);
+    mockApolloClient.mutate.mockResolvedValue(mockLogin);
 
     render(
       <AuthProvider>

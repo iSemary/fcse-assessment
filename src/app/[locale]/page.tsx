@@ -5,11 +5,7 @@ export function generateStaticParams() {
   return generateLocaleParams();
 }
 
-export default async function HomePage({
-  params,
-}: {
-  params: { locale: string };
-}) {
+export default async function HomePage({}: { params: { locale: string } }) {
   const t = await getTranslations();
 
   return (

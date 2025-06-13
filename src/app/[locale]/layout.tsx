@@ -35,9 +35,6 @@ export default async function LocaleLayout({
   // Pass the locale to getMessages
   const messages = await getMessages({ locale });
 
-  console.log('Messages loaded for locale:', locale);
-  console.log('Available message keys:', Object.keys(messages || {}));
-
   return (
     <html lang={locale} dir={localeData.dir}>
       <body className={`flex flex-col min-h-screen`}>

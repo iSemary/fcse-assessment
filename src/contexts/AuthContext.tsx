@@ -21,7 +21,7 @@ interface AuthContextType {
   login: (
     email: string,
     password: string
-  ) => Promise<{ success: boolean; error?: string }>;
+  ) => Promise<{ success: boolean; error?: string; human_error?: string }>;
   logout: () => void;
   isLoading: boolean;
 }
@@ -51,10 +51,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           const parsedUser = JSON.parse(storedUser);
           setToken(storedToken);
           setUser(parsedUser);
-          console.log('Restored auth state:', {
-            user: parsedUser,
-            hasToken: !!storedToken,
-          });
         } catch (error) {
           console.error('Error parsing stored user data:', error);
           localStorage.removeItem('authToken');
@@ -78,10 +74,27 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         errorPolicy: 'all',
       });
 
+      // Check for the readable errors from the GraphQL response
       if (errors && errors.length > 0) {
+        const firstError = errors[0];
+        let human_error: string | undefined = undefined;
+
+        try {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const exception = firstError?.extensions?.exception as any;
+          const messagesArray =
+            exception?.data?.[0]?.messages ??
+            exception?.data?.message?.[0]?.messages;
+
+          if (Array.isArray(messagesArray)) {
+            human_error = messagesArray?.[0]?.message;
+          }
+        } catch {}
+
         return {
-          success: false,          
-          error: errors[0].message || 'Login failed',
+          success: false,
+          human_error,
+          error: firstError.message || 'Login failed',
         };
       }
 
@@ -96,14 +109,15 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           localStorage.setItem('authUser', JSON.stringify(userData));
         }
 
-        console.log('Login successful:', {
-          user: userData,
-          tokenLength: jwt.length,
-        });
-        return { success: true };
+        return {
+          success: true,
+        };
       }
 
-      return { success: false, error: 'Login failed' };
+      return {
+        success: false,
+        error: 'Login failed',
+      };
     } catch (error: unknown) {
       console.error('Login error:', error);
       return {

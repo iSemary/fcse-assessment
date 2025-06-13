@@ -13,7 +13,6 @@ jest.mock('next-intl', () => ({
       'title': 'Profile',
       'firstNameLabel': 'First Name',
       'lastNameLabel': 'Last Name', 
-      'emailLabel': 'Email',
     };
     return translations[key] || key;
   },
@@ -102,7 +101,7 @@ describe('ProfilePage', () => {
 
   it('shows user data when authenticated', async () => {
     mockUseAuth.mockReturnValue({
-      user: { id: '1', email: 'user@example.com' },
+      user: { id: '1'},
       isLoading: false,
       token: 'token123',
       login: jest.fn(),
@@ -115,7 +114,6 @@ describe('ProfilePage', () => {
           id: '1', 
           firstName: 'John', 
           lastName: 'Doe', 
-          email: 'user@example.com' 
         } 
       },
       loading: false,
@@ -130,7 +128,6 @@ describe('ProfilePage', () => {
     });
     
     expect(screen.getByDisplayValue('Doe')).toBeInTheDocument();
-    expect(screen.getByDisplayValue('user@example.com')).toBeInTheDocument();
   });
 
   it('shows error state when query fails', async () => {

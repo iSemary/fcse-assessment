@@ -43,7 +43,8 @@
     "home": "Home",
     "login": "Login",
     "profile": "Profile",
-    "logout": "Logout"
+    "logout": "Logout",
+    "hello": "Hello, {name}!"
   },
   "Header": {
     "welcome": "Welcome",

@@ -18,7 +18,7 @@ export default function ProfilePage({
 }: {
   params: Promise<{ locale: string }>;
 }) {
-  const { user: authUser, isLoading: authLoading, token } = useAuth();
+  const { user: authUser, isLoading: authLoading, token, logout } = useAuth();
   const router = useRouter();
   const t = useTranslations('ProfilePage');
   const [locale, setLocale] = useState<string>('en');
@@ -49,6 +49,11 @@ export default function ProfilePage({
 
   const handleRefresh = () => {
     refetch();
+  };
+
+  const handleLogout = () => {
+    logout();
+    router.push(`/${locale}/login`);
   };
 
   if (authLoading) {
@@ -154,20 +159,27 @@ export default function ProfilePage({
             />
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              {t('emailLabel')}
-            </label>
-            <input
-              type="text"
-              value={
-                isLoading
-                  ? 'Loading...'
-                  : user?.email || authUser.email || 'Not available'
-              }
-              readOnly
-              className="block w-full px-3 py-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-900 sm:text-sm cursor-not-allowed"
-            />
+          <div className="pt-4 border-t border-gray-200">
+            <button
+              onClick={handleLogout}
+              className="w-full flex justify-center items-center px-4 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors duration-200"
+            >
+              <svg
+                className="w-4 h-4 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                />
+              </svg>
+              {t('logoutButton')}
+            </button>
           </div>
         </div>
       </div>

@@ -43,7 +43,8 @@
     "home": "Startseite",
     "login": "Anmelden",
     "profile": "Profil",
-    "logout": "Abmelden"
+    "logout": "Abmelden",
+    "hello": "Hallo, {name}!"
   },
   "Header": {
     "welcome": "Willkommen",

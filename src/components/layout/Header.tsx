@@ -48,10 +48,7 @@ export default function Header() {
               /* Authenticated */
               <>
                 <span className="hidden sm:inline-flex items-center text-sm text-gray-700">
-                  Hello,{' '}
-                  <span className="font-medium ml-1">
-                    {user.username || user.email}
-                  </span>
+                  {t('hello', { name: user.username || user.email })}
                 </span>
                 <Link
                   href={`/${locale}/profile`}

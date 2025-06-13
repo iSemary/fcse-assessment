@@ -17,7 +17,6 @@ export const USER_QUERY = gql`
   query User($id: ID!) {
     user(id: $id) {
       id
-      email
       firstName
       lastName
     }

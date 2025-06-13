@@ -61,7 +61,7 @@ export default function LoginForm({ locale }: LoginFormProps) {
           timer: 5000,
           position: 'top-end',
           title: t('error.title'),
-          text: result.error || t('error.loginFailed'),
+          text: result.human_error ?? result.error ?? t('error.loginFailed'),
         });
       }
     } catch (error) {
@@ -76,8 +76,6 @@ export default function LoginForm({ locale }: LoginFormProps) {
       });
       setIsLoading(false);
       console.error('Login error:', error);
-    } finally {
-      setIsLoading(false);
     }
   };
 

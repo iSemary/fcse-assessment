@@ -3,7 +3,7 @@ import createMiddleware from 'next-intl/middleware';
 import { locales, defaultLocale } from './config/locales';
 
 const intlMiddleware = createMiddleware({
-  locales: [...locales],
+  locales,
   defaultLocale,
   localePrefix: 'always',
 });
@@ -28,5 +28,5 @@ export default function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!_next|api|favicon.ico).*)', '/'],
+  matcher: ['/((?!_next|api|_vercel|favicon.ico|images).*)', '/'],
 };

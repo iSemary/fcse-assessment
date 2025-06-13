@@ -51,6 +51,9 @@
     "logout": "Logout",
     "profile": "Profile"
   },
+  "Footer": {
+    "description": "Made with love by Abdelrahman Mostafa"
+  },
   "Common": {
     "loading": "Loading...",
     "error": "Error",

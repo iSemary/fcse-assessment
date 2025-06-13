@@ -68,3 +68,52 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t fcse-assessment:${{ github.sha }} .
+
+  deploy-to-vps:
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+
+    steps:
+      - name: Deploy to VPS
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_PORT }}
+          script: |
+            # Navigate to project directory
+            cd /var/www/${{ secrets.PROJECT_DIRECTORY }}
+            
+            # Pull latest changes
+            echo "🔄 Pulling latest changes..."
+            git pull origin master
+            
+            # Stop existing container
+            echo "🛑 Stopping existing container..."
+            docker-compose down || true
+            
+            # Remove old images to free up space
+            echo "🧹 Cleaning up old images..."
+            docker image prune -f
+            
+            # Build and start new container
+            echo "🔨 Building and starting new container..."
+            docker-compose up -d --build
+            
+            # Wait for container to start
+            sleep 10
+            
+            # Check if container is running
+            if docker-compose ps | grep -q "Up"; then
+              echo "✅ Deployment successful!"
+              echo "🌐 App is running on port 3002"
+            else
+              echo "❌ Deployment failed!"
+              docker-compose logs
+              exit 1
+            fi
+            
+            # Show container status
+            docker-compose ps

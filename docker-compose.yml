@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  fcse-app:
+    build: .
+    container_name: fcse-assessment
+    ports:
+      - '3002:3000'
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    restart: unless-stopped
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - fcse-network
+
+networks:
+  fcse-network:
+    driver: bridge

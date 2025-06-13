@@ -37,7 +37,10 @@
     "emailLabel": "E-Mail",
     "logoutButton": "Abmelden",
     "loading": "Laden...",
-    "welcome": "Willkommen zurück!"
+    "welcome": "Willkommen zurück!",
+    "notAvailable": "Nicht verfugbar",
+    "errorLoadingUserData": "Fehler beim Laden von Benutzerdaten",
+    "tryAgain": "Versuchen sie es nochmal"
   },
   "Navigation": {
     "home": "Startseite",

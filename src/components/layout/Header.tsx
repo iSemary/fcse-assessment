@@ -32,7 +32,7 @@ export default function Header() {
                 priority
               />
               <span className="text-xl font-bold text-gray-900">
-                {process.env.NEXT_PUBLIC_APP_NAME || 'FCSE'}
+                {process.env.NEXT_PUBLIC_APP_NAME || 'FCSE Assessment'}
               </span>
             </Link>
           </div>

@@ -113,7 +113,7 @@ export default function ProfilePage({
                 </div>
                 <div className="ml-3">
                   <h3 className="text-sm font-medium text-red-800">
-                    Error loading user data
+                    {t('errorLoadingUserData')}
                   </h3>
                   <div className="mt-2 text-sm text-red-700">
                     {userError.message}
@@ -123,7 +123,7 @@ export default function ProfilePage({
                       onClick={handleRefresh}
                       className="text-sm bg-red-100 hover:bg-red-200 px-3 py-1 rounded"
                     >
-                      Try Again
+                    {t('tryAgain')}
                     </button>
                   </div>
                 </div>
@@ -138,7 +138,9 @@ export default function ProfilePage({
             <input
               type="text"
               value={
-                isLoading ? 'Loading...' : user?.firstName || 'Not available'
+                isLoading
+                  ? t('loading') + '...'
+                  : user?.firstName || t('notAvailable')
               }
               readOnly
               className="block w-full px-3 py-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-900 sm:text-sm cursor-not-allowed"
@@ -152,7 +154,9 @@ export default function ProfilePage({
             <input
               type="text"
               value={
-                isLoading ? 'Loading...' : user?.lastName || 'Not available'
+                isLoading
+                  ? t('loading') + '...'
+                  : user?.lastName || t('notAvailable')
               }
               readOnly
               className="block w-full px-3 py-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-900 sm:text-sm cursor-not-allowed"

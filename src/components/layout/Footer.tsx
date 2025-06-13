@@ -20,7 +20,7 @@ export default function Footer() {
                 priority
               />
               <span className="text-xl font-bold">
-                {process.env.NEXT_PUBLIC_APP_NAME || 'FCSE'}
+                {process.env.NEXT_PUBLIC_APP_NAME || 'FCSE Assessment'}
               </span>
             </div>
             <p className="text-gray-400 mb-4 max-w-md">{t('description')}</p>

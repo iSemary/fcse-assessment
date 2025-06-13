@@ -37,7 +37,10 @@
     "emailLabel": "البريد الإلكتروني",
     "logoutButton": "تسجيل الخروج",
     "loading": "جارٍ التحميل...",
-    "welcome": "مرحبًا بعودتك!"
+    "welcome": "مرحبًا بعودتك!",
+    "notAvailable": "غير متاح",
+    "errorLoadingUserData": "خطأ خلال تحميل بيانات المستخدم",
+    "tryAgain": "حاول مجدداً"
   },
   "Navigation": {
     "home": "الرئيسية",

@@ -37,7 +37,10 @@
     "emailLabel": "Email",
     "logoutButton": "Logout",
     "loading": "Loading...",
-    "welcome": "Welcome back!"
+    "welcome": "Welcome back!",
+    "notAvailable": "Not available",
+    "errorLoadingUserData": "Error loading user data",
+    "tryAgain": "Try again"
   },
   "Navigation": {
     "home": "Home",

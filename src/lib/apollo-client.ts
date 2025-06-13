@@ -8,7 +8,9 @@ import { setContext } from '@apollo/client/link/context';
 import { onError } from '@apollo/client/link/error';
 
 const httpLink = createHttpLink({
-  uri: 'https://cms.trial-task.k8s.ext.fcse.io/graphql',
+  uri:
+    process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT ||
+    'https://cms.trial-task.k8s.ext.fcse.io/graphql',
 });
 
 const authLink = setContext((operation, { headers }) => {

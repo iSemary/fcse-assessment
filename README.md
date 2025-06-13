@@ -82,6 +82,12 @@ A modern web application built with Next.js, Typescript, GraphQL, and Tailwind.
 
 ## Testing
 
+Tests Path:
+
+```
+src/__tests__/
+```
+
 Run the test suite:
 
 ```bash

@@ -1,6 +1,7 @@
 import { render, screen, waitFor, act } from '@testing-library/react';
 import { AuthProvider, useAuth } from '../../contexts/AuthContext';
 import React from 'react';
+import '@testing-library/jest-dom';
 
 jest.mock('../../lib/apollo-client', () => ({
   apolloClient: {
@@ -17,7 +18,7 @@ const TestComponent = () => {
       <div>user: {user?.email || 'none'}</div>
       <div>token: {token || 'none'}</div>
       <div>loading: {isLoading ? 'yes' : 'no'}</div>
-      <button onClick={() => login('test@example.com', 'pass')}>Login</button>
+      <button onClick={() => login('test@freshcells.de', 'KTKwXm2grV4wHzW')}>Login</button>
       <button onClick={logout}>Logout</button>
     </div>
   );
@@ -31,7 +32,7 @@ describe('AuthContext', () => {
           jwt: 'fake-jwt',
           user: {
             id: '1',
-            email: 'test@example.com',
+            email: 'test@freshcells.de',
             username: 'tester',
           },
         },
@@ -51,7 +52,7 @@ describe('AuthContext', () => {
       screen.getByText('Login').click();
     });
 
-    expect(await screen.findByText(/user: test@example.com/)).toBeInTheDocument();
+    expect(await screen.findByText(/user: test@freshcells.de/)).toBeInTheDocument();
     expect(screen.getByText(/token: fake-jwt/)).toBeInTheDocument();
   });
 

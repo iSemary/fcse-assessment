@@ -12,7 +12,12 @@ jest.mock('next-intl', () => ({
     const translations = {
       'title': 'Profile',
       'firstNameLabel': 'First Name',
-      'lastNameLabel': 'Last Name', 
+      'lastNameLabel': 'Last Name',
+      'errorLoadingUserData': 'Error loading user data',
+      'tryAgain': 'Try Again',
+      'loading': 'Loading',
+      'notAvailable': 'Not available',
+      'logoutButton': 'Logout',
     };
     return translations[key] || key;
   },
